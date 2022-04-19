@@ -17,14 +17,15 @@ message='''<html>
 for pizza in array:
     name = pizza["name"]
     message+=f"<h2>Name: {name}</h2>"
-    Ingredients = pizza["Ingredients"]
-    message+=f"<p>Ingredients: {Ingredients}<p>"
-    Cooking =pizza["Cooking"]
-    message+=f"<p>Preparations: {Cooking}</p>"
-    Steps= pizza["steps"]
-    message+=f"<p>How to cook: {Steps}</p>"
-    
-
+    message+=f"<h2>INGREDIENTS</h2>"
+    for ingredients in pizza["Ingredients"]:
+        message+=f'<li>{ingredients["name"]} {ingredients["count"]} {ingredients["unit"]}</li>'
+    message+=f"<h2>PREPARATIONS</h2>"
+    for Cooking in pizza["Cooking"]:
+        message+=f'<li>{Cooking["Time"]} {Cooking["degree"]} degree in {Cooking["Where"]}</li>'
+    message+=f"<h2>HOW TO COOK</h2>"
+    for Steps in pizza["steps"]:
+        message+=f'<li>{Steps["dscription"]}</li>'
 
 message += """
 </body>
